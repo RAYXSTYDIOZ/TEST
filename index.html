@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded iFrames</title>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            perspective: 3000px;
+            background: linear-gradient(135deg, #000000, #ffffff, #ff0000, #ffff00, #8000ff); /* Updated gradient colors */
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            font-family: 'Anton', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .list {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list__item {
+            flex-shrink: 0;
+            height: 568px;
+            width: 360px;
+            margin: 20px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateX(50deg) rotateZ(-30deg);
+            border: 3px solid #00ff00; /* Green border color */
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Neon green glow */
+            transition: 0.6s;
+            background: #000; /* Background color for iframe containers */
+            overflow: hidden; /* Ensure the iframes do not overflow their container */
+        }
+
+        .list__item:hover {
+            transform: rotateX(0) rotateZ(0);
+            z-index: 2;
+            border: 3px solid #00ff00; /* Neon green border color on hover */
+            box-shadow: 0 0 25px rgba(0, 255, 0, 1); /* Brighter neon green glow on hover */
+        }
+
+        .list__item-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: #fff;
+        }
+
+        .title {
+            font-family: 'Luckiest Guy', cursive; /* Playful font style */
+            font-size: 28px; /* Font size for the title */
+            color: #A020F0; /* Neon gold color */
+            text-shadow: 
+                0 0 5px #ff0000, /* Red inner glow */
+                0 0 10px #ff0000,
+                0 0 15px #ff0000,
+                0 0 20px #ff0000,
+                0 0 25px #ff0000,
+                0 0 30px #ff0000,
+                0 0 35px #ff0000; /* More intense glow */
+            font-weight: bold; /* Bold text */
+            text-align: center; /* Centered text */
+            display: block;
+            margin: 12px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title">RAYXSTUDIOZ</div>
+                <iframe src="https://www.rayxstudioz.in/" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title">PORTFOLIO</div>
+                <iframe src="https://sussyrayan.is-a.dev" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title">DISCORD SITE</div>
+                <iframe src="https://dscbmr.is-a.dev" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title">INSTAGRAM</div>
+                <iframe src="https://www.instagram.com/bmr.tt1/" frameborder="0"></iframe>
+            </div>
+        </li>
+        <li class="list__item">
+            <div class="list__item-container">
+                <div class="title">Site 5</div>
+                <iframe src="https://sloboda-fishing.com/" frameborder="0"></iframe>
+            </div>
+        </li>
+    </ul>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const titles = document.querySelectorAll('.title');
+        titles.forEach(title => {
+            title.style.color = getRandomColor();
+        });
+    </script>
+</body>
+</html>
